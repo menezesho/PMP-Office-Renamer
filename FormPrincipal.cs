@@ -87,13 +87,15 @@ namespace oficios
                     {
                         File.Move(origem, diretorio + "\\" + arqDestino + ".pdf");
                         MessageBox.Show("Arquivo renomeado com sucesso!", "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        mtbNumSeq.Clear();
+                        int auxNumSeq = int.Parse(mtbNumSeq.Text);
+                        mtbNumSeq.Text = auxNumSeq.ToString();
                         mtbNumOficio.Clear();
                         tbSetor.Clear();
                         tbResultado.Clear();
                         tbArquivoSelecionado.Clear();
-                        mtbNumSeq.Focus();
+                        mtbNumOficio.Focus();
                         this.origem = "";
+
                     }
                     catch (Exception ex)
                     {
@@ -125,14 +127,24 @@ namespace oficios
         private void btAbrirArquivo_Click(object sender, EventArgs e)
         {//btAbrirArquivo
             OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-                openFile(ofd.FileName);
-            origem = ofd.FileName;
-            tbArquivoSelecionado.Text = Path.GetFileName(origem);
-            if (!verificarArquivo())
+            try
+            {
+                if (!verificarArquivo())
+                {
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        openFile(ofd.FileName);
+                        origem = ofd.FileName;
+                        tbArquivoSelecionado.Text = Path.GetFileName(origem);
+                        
+                    }
+                }
+            }
+            catch
             {
                 MessageBox.Show("Formato de arquivo inválido!", "Abrir arquivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 origem = "";
+                return;
             }
         }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.btRenomear = new System.Windows.Forms.Button();
             this.tbArquivoSelecionado = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@
             this.btAbrirArquivo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -59,11 +61,12 @@
             this.btRenomear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRenomear.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRenomear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btRenomear.Location = new System.Drawing.Point(146, 613);
+            this.btRenomear.Location = new System.Drawing.Point(185, 614);
             this.btRenomear.Name = "btRenomear";
             this.btRenomear.Size = new System.Drawing.Size(179, 35);
             this.btRenomear.TabIndex = 5;
             this.btRenomear.Text = "&RENOMEAR";
+            this.ttInfo.SetToolTip(this.btRenomear, "Renomear arquivo");
             this.btRenomear.UseVisualStyleBackColor = false;
             this.btRenomear.Click += new System.EventHandler(this.btRenomear_Click);
             // 
@@ -75,7 +78,7 @@
             this.tbArquivoSelecionado.Enabled = false;
             this.tbArquivoSelecionado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbArquivoSelecionado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.tbArquivoSelecionado.Location = new System.Drawing.Point(27, 325);
+            this.tbArquivoSelecionado.Location = new System.Drawing.Point(66, 326);
             this.tbArquivoSelecionado.MaxLength = 100;
             this.tbArquivoSelecionado.Name = "tbArquivoSelecionado";
             this.tbArquivoSelecionado.Size = new System.Drawing.Size(416, 29);
@@ -88,7 +91,7 @@
             this.lbArquivo.AutoSize = true;
             this.lbArquivo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbArquivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbArquivo.Location = new System.Drawing.Point(149, 299);
+            this.lbArquivo.Location = new System.Drawing.Point(188, 298);
             this.lbArquivo.Name = "lbArquivo";
             this.lbArquivo.Size = new System.Drawing.Size(172, 23);
             this.lbArquivo.TabIndex = 4;
@@ -100,7 +103,7 @@
             this.lbNumSeq.AutoSize = true;
             this.lbNumSeq.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbNumSeq.Location = new System.Drawing.Point(47, 403);
+            this.lbNumSeq.Location = new System.Drawing.Point(62, 401);
             this.lbNumSeq.Name = "lbNumSeq";
             this.lbNumSeq.Size = new System.Drawing.Size(141, 23);
             this.lbNumSeq.TabIndex = 5;
@@ -113,10 +116,10 @@
             this.tbSetor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSetor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.tbSetor.Location = new System.Drawing.Point(194, 470);
+            this.tbSetor.Location = new System.Drawing.Point(224, 471);
             this.tbSetor.MaxLength = 70;
             this.tbSetor.Name = "tbSetor";
-            this.tbSetor.Size = new System.Drawing.Size(249, 29);
+            this.tbSetor.Size = new System.Drawing.Size(258, 29);
             this.tbSetor.TabIndex = 3;
             this.tbSetor.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
             // 
@@ -126,7 +129,7 @@
             this.lbSetor.AutoSize = true;
             this.lbSetor.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbSetor.Location = new System.Drawing.Point(133, 473);
+            this.lbSetor.Location = new System.Drawing.Point(148, 471);
             this.lbSetor.Name = "lbSetor";
             this.lbSetor.Size = new System.Drawing.Size(55, 23);
             this.lbSetor.TabIndex = 9;
@@ -138,7 +141,7 @@
             this.lbNumOficio.AutoSize = true;
             this.lbNumOficio.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbNumOficio.Location = new System.Drawing.Point(88, 438);
+            this.lbNumOficio.Location = new System.Drawing.Point(103, 436);
             this.lbNumOficio.Name = "lbNumOficio";
             this.lbNumOficio.Size = new System.Drawing.Size(100, 23);
             this.lbNumOficio.TabIndex = 10;
@@ -150,7 +153,7 @@
             this.lbResultado.AutoSize = true;
             this.lbResultado.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbResultado.Location = new System.Drawing.Point(189, 542);
+            this.lbResultado.Location = new System.Drawing.Point(228, 541);
             this.lbResultado.Name = "lbResultado";
             this.lbResultado.Size = new System.Drawing.Size(92, 23);
             this.lbResultado.TabIndex = 12;
@@ -164,7 +167,7 @@
             this.tbResultado.Enabled = false;
             this.tbResultado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.tbResultado.Location = new System.Drawing.Point(27, 568);
+            this.tbResultado.Location = new System.Drawing.Point(66, 569);
             this.tbResultado.MaxLength = 100;
             this.tbResultado.Name = "tbResultado";
             this.tbResultado.Size = new System.Drawing.Size(416, 29);
@@ -177,16 +180,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pdf.BackColor = System.Drawing.SystemColors.Control;
-            this.pdf.Location = new System.Drawing.Point(464, -1);
+            this.pdf.Location = new System.Drawing.Point(536, -1);
             this.pdf.Name = "pdf";
-            this.pdf.Size = new System.Drawing.Size(735, 675);
+            this.pdf.Size = new System.Drawing.Size(663, 675);
             this.pdf.TabIndex = 13;
             this.pdf.TabStop = false;
+            this.pdf.ZoomMode = PdfiumViewer.PdfViewerZoomMode.FitWidth;
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(461, -1);
+            this.label3.Location = new System.Drawing.Point(533, -1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 25);
             this.label3.TabIndex = 16;
@@ -200,7 +204,7 @@
             this.mtbNumOficio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumOficio.HidePromptOnLeave = true;
-            this.mtbNumOficio.Location = new System.Drawing.Point(194, 435);
+            this.mtbNumOficio.Location = new System.Drawing.Point(224, 436);
             this.mtbNumOficio.Mask = "0000";
             this.mtbNumOficio.Name = "mtbNumOficio";
             this.mtbNumOficio.Size = new System.Drawing.Size(59, 29);
@@ -216,7 +220,7 @@
             this.mtbNumSeq.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumSeq.HidePromptOnLeave = true;
-            this.mtbNumSeq.Location = new System.Drawing.Point(194, 400);
+            this.mtbNumSeq.Location = new System.Drawing.Point(224, 401);
             this.mtbNumSeq.Mask = "0000";
             this.mtbNumSeq.Name = "mtbNumSeq";
             this.mtbNumSeq.Size = new System.Drawing.Size(59, 29);
@@ -231,8 +235,8 @@
             this.checkEnviados.AutoSize = true;
             this.checkEnviados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkEnviados.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEnviados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.checkEnviados.Location = new System.Drawing.Point(253, 229);
+            this.checkEnviados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.checkEnviados.Location = new System.Drawing.Point(296, 230);
             this.checkEnviados.Name = "checkEnviados";
             this.checkEnviados.Size = new System.Drawing.Size(97, 27);
             this.checkEnviados.TabIndex = 17;
@@ -246,8 +250,8 @@
             this.checkRecebidos.AutoSize = true;
             this.checkRecebidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkRecebidos.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkRecebidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.checkRecebidos.Location = new System.Drawing.Point(119, 229);
+            this.checkRecebidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.checkRecebidos.Location = new System.Drawing.Point(154, 230);
             this.checkRecebidos.Name = "checkRecebidos";
             this.checkRecebidos.Size = new System.Drawing.Size(107, 27);
             this.checkRecebidos.TabIndex = 18;
@@ -264,10 +268,11 @@
             this.btAbrirArquivo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAbrirArquivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btAbrirArquivo.Image = ((System.Drawing.Image)(resources.GetObject("btAbrirArquivo.Image")));
-            this.btAbrirArquivo.Location = new System.Drawing.Point(408, 325);
+            this.btAbrirArquivo.Location = new System.Drawing.Point(447, 326);
             this.btAbrirArquivo.Name = "btAbrirArquivo";
             this.btAbrirArquivo.Size = new System.Drawing.Size(35, 29);
             this.btAbrirArquivo.TabIndex = 19;
+            this.ttInfo.SetToolTip(this.btAbrirArquivo, "Abrir arquivo");
             this.btAbrirArquivo.UseVisualStyleBackColor = false;
             this.btAbrirArquivo.Click += new System.EventHandler(this.btAbrirArquivo_Click);
             // 
@@ -275,7 +280,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(121, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(160, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 182);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -286,8 +291,8 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.pictureBox2.Location = new System.Drawing.Point(460, -1);
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.pictureBox2.Location = new System.Drawing.Point(536, -1);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(3, 675);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -352,6 +357,7 @@
         private System.Windows.Forms.Button btAbrirArquivo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolTip ttInfo;
     }
 }
 
