@@ -87,6 +87,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Setup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\icon-open-file.png" />
+    <Content Include="Images\logo-pmp.gif" />
+    <Content Include="Images\logo-pmp.ico" />
+    <Content Include="Images\logo-pmp.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

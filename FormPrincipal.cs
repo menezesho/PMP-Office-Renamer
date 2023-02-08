@@ -11,24 +11,23 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace oficios
 {
     public partial class FormPrincipal : Form
     {
-        //PdfiumViewer.PdfViewer pdf;
         string origem = "";
 
         public FormPrincipal()
         {
             InitializeComponent();
-            //pdf = new PdfViewer();
-            //this.Controls.Add(pdf);
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            if(enviadosToolStripMenuItem.Checked == true)
+            checkRecebidos.Checked = true;
+            if (checkEnviados.Checked == true)
                 mtbNumSeq.Enabled = false;
         }
 
@@ -65,7 +64,7 @@ namespace oficios
                 var diretorio = Path.GetDirectoryName(origem);
                 var arqOrigem = Path.GetFileName(origem);
                 var arqDestino = "";
-                if (enviadosToolStripMenuItem.Checked == true)
+                if (checkEnviados.Checked == true)
                 {
                     arqDestino = Path.GetFileName(mtbNumOficio.Text + " - " + tbSetor.Text);
                 }
@@ -112,16 +111,29 @@ namespace oficios
             pdf.Document = pdfDocument;
         }
 
+        public bool verificarArquivo()
+        {
+            bool validacao = tbArquivoSelecionado.Text.Contains(".pdf");
+            if (validacao)
+                return true;
+            else
+                return false;
+        }
+
         #endregion
 
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {//abrirClick
+        private void btAbrirArquivo_Click(object sender, EventArgs e)
+        {//btAbrirArquivo
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
                 openFile(ofd.FileName);
             origem = ofd.FileName;
             tbArquivoSelecionado.Text = Path.GetFileName(origem);
-
+            if (!verificarArquivo())
+            {
+                MessageBox.Show("Formato de arquivo inválido!", "Abrir arquivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                origem = "";
+            }
         }
 
         private void btRenomear_Click(object sender, EventArgs e)
@@ -129,31 +141,27 @@ namespace oficios
             renomearArquivo(origem);
         }
 
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {//btSair
-            if (MessageBox.Show("Deseja mesmo finalizar o programa?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                Application.Exit();
-        }
-
-        private void allTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (enviadosToolStripMenuItem.Checked == true)
-                tbResultado.Text = mtbNumOficio.Text + " - " + tbSetor.Text;
-            else
-                tbResultado.Text = mtbNumSeq.Text + " - " + mtbNumOficio.Text + " " + tbSetor.Text;
-        }
-
-        private void enviadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {//enviadosClick
-            recebidosToolStripMenuItem.Checked = false;
+        private void checkEnviados_Click(object sender, EventArgs e)
+        {//checkEnviados
+            checkRecebidos.Checked = false;
+            checkEnviados.Checked = true;
             mtbNumSeq.Enabled = false;
             mtbNumSeq.Clear();
         }
 
-        private void recebidosToolStripMenuItem_Click(object sender, EventArgs e)
-        {//recebidosClick
-            enviadosToolStripMenuItem.Checked = false;
+        private void checkRecebidos_Click(object sender, EventArgs e)
+        {//checkRecebidos
+            checkEnviados.Checked = false;
+            checkRecebidos.Checked = true;
             mtbNumSeq.Enabled = true;
+        }
+
+        private void allTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (checkEnviados.Checked == true)
+                tbResultado.Text = mtbNumOficio.Text + " - " + tbSetor.Text;
+            else
+                tbResultado.Text = mtbNumSeq.Text + " - " + mtbNumOficio.Text + " " + tbSetor.Text;
         }
 
         #region Cursor
@@ -169,6 +177,5 @@ namespace oficios
         }
 
         #endregion
-
     }
 }

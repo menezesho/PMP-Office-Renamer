@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ofícioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recebidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btRenomear = new System.Windows.Forms.Button();
             this.tbArquivoSelecionado = new System.Windows.Forms.TextBox();
             this.lbArquivo = new System.Windows.Forms.Label();
@@ -50,100 +42,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mtbNumOficio = new System.Windows.Forms.MaskedTextBox();
             this.mtbNumSeq = new System.Windows.Forms.MaskedTextBox();
-            this.menuStrip1.SuspendLayout();
+            this.checkEnviados = new System.Windows.Forms.CheckBox();
+            this.checkRecebidos = new System.Windows.Forms.CheckBox();
+            this.btAbrirArquivo = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem,
-            this.ofícioToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1199, 29);
-            this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.TabStop = true;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // arquivoToolStripMenuItem
-            // 
-            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.abrirToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.sairToolStripMenuItem});
-            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(77, 25);
-            this.arquivoToolStripMenuItem.Text = "&Arquivo";
-            this.arquivoToolStripMenuItem.MouseEnter += new System.EventHandler(this.allToolStripMenuItem_MouseEnter);
-            this.arquivoToolStripMenuItem.MouseLeave += new System.EventHandler(this.allToolStripMenuItem_MouseLeave);
-            // 
-            // abrirToolStripMenuItem
-            // 
-            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.abrirToolStripMenuItem.Text = "Abrir";
-            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
-            this.abrirToolStripMenuItem.MouseEnter += new System.EventHandler(this.allToolStripMenuItem_MouseEnter);
-            this.abrirToolStripMenuItem.MouseLeave += new System.EventHandler(this.allToolStripMenuItem_MouseLeave);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            this.sairToolStripMenuItem.MouseEnter += new System.EventHandler(this.allToolStripMenuItem_MouseEnter);
-            this.sairToolStripMenuItem.MouseLeave += new System.EventHandler(this.allToolStripMenuItem_MouseLeave);
-            // 
-            // ofícioToolStripMenuItem
-            // 
-            this.ofícioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.recebidosToolStripMenuItem,
-            this.enviadosToolStripMenuItem});
-            this.ofícioToolStripMenuItem.Name = "ofícioToolStripMenuItem";
-            this.ofícioToolStripMenuItem.Size = new System.Drawing.Size(63, 25);
-            this.ofícioToolStripMenuItem.Text = "&Ofício";
-            this.ofícioToolStripMenuItem.MouseEnter += new System.EventHandler(this.allToolStripMenuItem_MouseEnter);
-            this.ofícioToolStripMenuItem.MouseLeave += new System.EventHandler(this.allToolStripMenuItem_MouseLeave);
-            // 
-            // recebidosToolStripMenuItem
-            // 
-            this.recebidosToolStripMenuItem.Checked = true;
-            this.recebidosToolStripMenuItem.CheckOnClick = true;
-            this.recebidosToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.recebidosToolStripMenuItem.Name = "recebidosToolStripMenuItem";
-            this.recebidosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.recebidosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.recebidosToolStripMenuItem.Text = "Recebidos";
-            this.recebidosToolStripMenuItem.Click += new System.EventHandler(this.recebidosToolStripMenuItem_Click);
-            // 
-            // enviadosToolStripMenuItem
-            // 
-            this.enviadosToolStripMenuItem.CheckOnClick = true;
-            this.enviadosToolStripMenuItem.Name = "enviadosToolStripMenuItem";
-            this.enviadosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.enviadosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.enviadosToolStripMenuItem.Text = "Enviados";
-            this.enviadosToolStripMenuItem.Click += new System.EventHandler(this.enviadosToolStripMenuItem_Click);
-            this.enviadosToolStripMenuItem.MouseEnter += new System.EventHandler(this.allToolStripMenuItem_MouseEnter);
-            this.enviadosToolStripMenuItem.MouseLeave += new System.EventHandler(this.allToolStripMenuItem_MouseLeave);
             // 
             // btRenomear
             // 
             this.btRenomear.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btRenomear.BackColor = System.Drawing.Color.Gainsboro;
+            this.btRenomear.BackColor = System.Drawing.Color.White;
             this.btRenomear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRenomear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btRenomear.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRenomear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.btRenomear.Location = new System.Drawing.Point(204, 499);
+            this.btRenomear.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRenomear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btRenomear.Location = new System.Drawing.Point(146, 613);
             this.btRenomear.Name = "btRenomear";
             this.btRenomear.Size = new System.Drawing.Size(179, 35);
             this.btRenomear.TabIndex = 5;
@@ -154,14 +70,15 @@
             // tbArquivoSelecionado
             // 
             this.tbArquivoSelecionado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbArquivoSelecionado.BackColor = System.Drawing.Color.White;
             this.tbArquivoSelecionado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbArquivoSelecionado.Enabled = false;
-            this.tbArquivoSelecionado.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbArquivoSelecionado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.tbArquivoSelecionado.Location = new System.Drawing.Point(85, 170);
+            this.tbArquivoSelecionado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbArquivoSelecionado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.tbArquivoSelecionado.Location = new System.Drawing.Point(27, 325);
             this.tbArquivoSelecionado.MaxLength = 100;
             this.tbArquivoSelecionado.Name = "tbArquivoSelecionado";
-            this.tbArquivoSelecionado.Size = new System.Drawing.Size(416, 33);
+            this.tbArquivoSelecionado.Size = new System.Drawing.Size(416, 29);
             this.tbArquivoSelecionado.TabIndex = 0;
             this.tbArquivoSelecionado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -169,11 +86,11 @@
             // 
             this.lbArquivo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbArquivo.AutoSize = true;
-            this.lbArquivo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbArquivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.lbArquivo.Location = new System.Drawing.Point(197, 142);
+            this.lbArquivo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbArquivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.lbArquivo.Location = new System.Drawing.Point(149, 299);
             this.lbArquivo.Name = "lbArquivo";
-            this.lbArquivo.Size = new System.Drawing.Size(192, 25);
+            this.lbArquivo.Size = new System.Drawing.Size(172, 23);
             this.lbArquivo.TabIndex = 4;
             this.lbArquivo.Text = "Arquivo selecionado:";
             // 
@@ -181,24 +98,25 @@
             // 
             this.lbNumSeq.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbNumSeq.AutoSize = true;
-            this.lbNumSeq.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.lbNumSeq.Location = new System.Drawing.Point(80, 262);
+            this.lbNumSeq.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.lbNumSeq.Location = new System.Drawing.Point(47, 403);
             this.lbNumSeq.Name = "lbNumSeq";
-            this.lbNumSeq.Size = new System.Drawing.Size(161, 25);
+            this.lbNumSeq.Size = new System.Drawing.Size(141, 23);
             this.lbNumSeq.TabIndex = 5;
             this.lbNumSeq.Text = "Num. sequencial:";
             // 
             // tbSetor
             // 
             this.tbSetor.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbSetor.BackColor = System.Drawing.Color.White;
             this.tbSetor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSetor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.tbSetor.Location = new System.Drawing.Point(252, 338);
+            this.tbSetor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.tbSetor.Location = new System.Drawing.Point(194, 470);
             this.tbSetor.MaxLength = 70;
             this.tbSetor.Name = "tbSetor";
-            this.tbSetor.Size = new System.Drawing.Size(249, 33);
+            this.tbSetor.Size = new System.Drawing.Size(249, 29);
             this.tbSetor.TabIndex = 3;
             this.tbSetor.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
             // 
@@ -206,11 +124,11 @@
             // 
             this.lbSetor.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbSetor.AutoSize = true;
-            this.lbSetor.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.lbSetor.Location = new System.Drawing.Point(179, 340);
+            this.lbSetor.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.lbSetor.Location = new System.Drawing.Point(133, 473);
             this.lbSetor.Name = "lbSetor";
-            this.lbSetor.Size = new System.Drawing.Size(62, 25);
+            this.lbSetor.Size = new System.Drawing.Size(55, 23);
             this.lbSetor.TabIndex = 9;
             this.lbSetor.Text = "Setor:";
             // 
@@ -218,11 +136,11 @@
             // 
             this.lbNumOficio.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbNumOficio.AutoSize = true;
-            this.lbNumOficio.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.lbNumOficio.Location = new System.Drawing.Point(121, 301);
+            this.lbNumOficio.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.lbNumOficio.Location = new System.Drawing.Point(88, 438);
             this.lbNumOficio.Name = "lbNumOficio";
-            this.lbNumOficio.Size = new System.Drawing.Size(117, 25);
+            this.lbNumOficio.Size = new System.Drawing.Size(100, 23);
             this.lbNumOficio.TabIndex = 10;
             this.lbNumOficio.Text = "Núm. ofício:";
             // 
@@ -230,25 +148,26 @@
             // 
             this.lbResultado.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbResultado.AutoSize = true;
-            this.lbResultado.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.lbResultado.Location = new System.Drawing.Point(242, 427);
+            this.lbResultado.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.lbResultado.Location = new System.Drawing.Point(189, 542);
             this.lbResultado.Name = "lbResultado";
-            this.lbResultado.Size = new System.Drawing.Size(103, 25);
+            this.lbResultado.Size = new System.Drawing.Size(92, 23);
             this.lbResultado.TabIndex = 12;
             this.lbResultado.Text = "Resultado:";
             // 
             // tbResultado
             // 
             this.tbResultado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbResultado.BackColor = System.Drawing.Color.White;
             this.tbResultado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbResultado.Enabled = false;
-            this.tbResultado.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.tbResultado.Location = new System.Drawing.Point(85, 455);
+            this.tbResultado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.tbResultado.Location = new System.Drawing.Point(27, 568);
             this.tbResultado.MaxLength = 100;
             this.tbResultado.Name = "tbResultado";
-            this.tbResultado.Size = new System.Drawing.Size(416, 33);
+            this.tbResultado.Size = new System.Drawing.Size(416, 29);
             this.tbResultado.TabIndex = 4;
             this.tbResultado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -257,18 +176,17 @@
             this.pdf.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pdf.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pdf.Location = new System.Drawing.Point(615, 28);
+            this.pdf.BackColor = System.Drawing.SystemColors.Control;
+            this.pdf.Location = new System.Drawing.Point(464, -1);
             this.pdf.Name = "pdf";
-            this.pdf.Size = new System.Drawing.Size(584, 634);
+            this.pdf.Size = new System.Drawing.Size(735, 675);
             this.pdf.TabIndex = 13;
             this.pdf.TabStop = false;
-            this.pdf.ZoomMode = PdfiumViewer.PdfViewerZoomMode.FitBest;
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.SystemColors.Menu;
-            this.label3.Location = new System.Drawing.Point(612, 28);
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(461, -1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 25);
             this.label3.TabIndex = 16;
@@ -277,14 +195,15 @@
             // mtbNumOficio
             // 
             this.mtbNumOficio.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.mtbNumOficio.BackColor = System.Drawing.Color.White;
             this.mtbNumOficio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mtbNumOficio.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.mtbNumOficio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumOficio.HidePromptOnLeave = true;
-            this.mtbNumOficio.Location = new System.Drawing.Point(252, 299);
-            this.mtbNumOficio.Mask = "000";
+            this.mtbNumOficio.Location = new System.Drawing.Point(194, 435);
+            this.mtbNumOficio.Mask = "0000";
             this.mtbNumOficio.Name = "mtbNumOficio";
-            this.mtbNumOficio.Size = new System.Drawing.Size(59, 33);
+            this.mtbNumOficio.Size = new System.Drawing.Size(59, 29);
             this.mtbNumOficio.TabIndex = 2;
             this.mtbNumOficio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbNumOficio.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
@@ -294,24 +213,99 @@
             // 
             this.mtbNumSeq.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.mtbNumSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mtbNumSeq.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.mtbNumSeq.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumSeq.HidePromptOnLeave = true;
-            this.mtbNumSeq.Location = new System.Drawing.Point(252, 260);
-            this.mtbNumSeq.Mask = "000";
+            this.mtbNumSeq.Location = new System.Drawing.Point(194, 400);
+            this.mtbNumSeq.Mask = "0000";
             this.mtbNumSeq.Name = "mtbNumSeq";
-            this.mtbNumSeq.Size = new System.Drawing.Size(59, 33);
+            this.mtbNumSeq.Size = new System.Drawing.Size(59, 29);
             this.mtbNumSeq.TabIndex = 1;
             this.mtbNumSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbNumSeq.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtbNumSeq.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
+            // 
+            // checkEnviados
+            // 
+            this.checkEnviados.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkEnviados.AutoSize = true;
+            this.checkEnviados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkEnviados.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkEnviados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.checkEnviados.Location = new System.Drawing.Point(253, 229);
+            this.checkEnviados.Name = "checkEnviados";
+            this.checkEnviados.Size = new System.Drawing.Size(97, 27);
+            this.checkEnviados.TabIndex = 17;
+            this.checkEnviados.Text = "Enviados";
+            this.checkEnviados.UseVisualStyleBackColor = true;
+            this.checkEnviados.Click += new System.EventHandler(this.checkEnviados_Click);
+            // 
+            // checkRecebidos
+            // 
+            this.checkRecebidos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkRecebidos.AutoSize = true;
+            this.checkRecebidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkRecebidos.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkRecebidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.checkRecebidos.Location = new System.Drawing.Point(119, 229);
+            this.checkRecebidos.Name = "checkRecebidos";
+            this.checkRecebidos.Size = new System.Drawing.Size(107, 27);
+            this.checkRecebidos.TabIndex = 18;
+            this.checkRecebidos.Text = "Recebidos";
+            this.checkRecebidos.UseVisualStyleBackColor = true;
+            this.checkRecebidos.Click += new System.EventHandler(this.checkRecebidos_Click);
+            // 
+            // btAbrirArquivo
+            // 
+            this.btAbrirArquivo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btAbrirArquivo.BackColor = System.Drawing.Color.White;
+            this.btAbrirArquivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAbrirArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAbrirArquivo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAbrirArquivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btAbrirArquivo.Image = ((System.Drawing.Image)(resources.GetObject("btAbrirArquivo.Image")));
+            this.btAbrirArquivo.Location = new System.Drawing.Point(408, 325);
+            this.btAbrirArquivo.Name = "btAbrirArquivo";
+            this.btAbrirArquivo.Size = new System.Drawing.Size(35, 29);
+            this.btAbrirArquivo.TabIndex = 19;
+            this.btAbrirArquivo.UseVisualStyleBackColor = false;
+            this.btAbrirArquivo.Click += new System.EventHandler(this.btAbrirArquivo_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(121, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(228, 182);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
+            this.pictureBox2.Location = new System.Drawing.Point(460, -1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(3, 675);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
             // 
             // FormPrincipal
             // 
             this.AcceptButton = this.btRenomear;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1199, 674);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btAbrirArquivo);
+            this.Controls.Add(this.checkRecebidos);
+            this.Controls.Add(this.checkEnviados);
             this.Controls.Add(this.mtbNumSeq);
             this.Controls.Add(this.mtbNumOficio);
             this.Controls.Add(this.label3);
@@ -325,29 +319,21 @@
             this.Controls.Add(this.lbArquivo);
             this.Controls.Add(this.tbArquivoSelecionado);
             this.Controls.Add(this.btRenomear);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1215, 713);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Renomear Ofícios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.Button btRenomear;
         private System.Windows.Forms.TextBox tbArquivoSelecionado;
         private System.Windows.Forms.Label lbArquivo;
@@ -359,11 +345,13 @@
         private System.Windows.Forms.TextBox tbResultado;
         private PdfiumViewer.PdfViewer pdf;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolStripMenuItem ofícioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enviadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem recebidosToolStripMenuItem;
         private System.Windows.Forms.MaskedTextBox mtbNumOficio;
         private System.Windows.Forms.MaskedTextBox mtbNumSeq;
+        private System.Windows.Forms.CheckBox checkEnviados;
+        private System.Windows.Forms.CheckBox checkRecebidos;
+        private System.Windows.Forms.Button btAbrirArquivo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
