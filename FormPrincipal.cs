@@ -89,6 +89,7 @@ namespace oficios
                         File.Move(origem, diretorio + "\\" + arqDestino + ".pdf");
                         MessageBox.Show("Arquivo renomeado com sucesso!", "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         int auxNumSeq = int.Parse(mtbNumSeq.Text);
+                        auxNumSeq += 1;
                         mtbNumSeq.Text = auxNumSeq.ToString();
                         mtbNumOficio.Clear();
                         tbSetor.Clear();
