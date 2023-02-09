@@ -18,6 +18,7 @@ namespace oficios
     public partial class FormPrincipal : Form
     {
         string origem = "";
+        string[] arquivos;
 
         public FormPrincipal()
         {
@@ -136,7 +137,6 @@ namespace oficios
                         openFile(ofd.FileName);
                         origem = ofd.FileName;
                         tbArquivoSelecionado.Text = Path.GetFileName(origem);
-                        
                     }
                 }
             }
@@ -189,5 +189,7 @@ namespace oficios
         }
 
         #endregion
+
+        
     }
 }
