@@ -18,7 +18,6 @@ namespace oficios
     public partial class FormPrincipal : Form
     {
         string origem = "";
-        string[] arquivos;
 
         public FormPrincipal()
         {
@@ -88,9 +87,17 @@ namespace oficios
                     {
                         File.Move(origem, diretorio + "\\" + arqDestino + ".pdf");
                         MessageBox.Show("Arquivo renomeado com sucesso!", "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        int auxNumSeq = int.Parse(mtbNumSeq.Text);
-                        auxNumSeq += 1;
-                        mtbNumSeq.Text = auxNumSeq.ToString();
+                        if (checkRecebidos.Checked)
+                        {
+                            int auxNumSeq = int.Parse(mtbNumSeq.Text);
+                            auxNumSeq += 1;
+                            if (int.Parse(mtbNumSeq.Text) >= 99)
+                                mtbNumSeq.Text = auxNumSeq.ToString();
+                            else
+                            {
+                                mtbNumSeq.Text = "0" + auxNumSeq.ToString();
+                            }
+                        }
                         mtbNumOficio.Clear();
                         tbSetor.Clear();
                         tbResultado.Clear();
@@ -189,8 +196,13 @@ namespace oficios
             Cursor = Cursors.Default;
         }
 
+
         #endregion
 
-        
+        private void lbLimparArquivo_Click(object sender, EventArgs e)
+        {
+            tbArquivoSelecionado.Clear();
+            origem = "";
+        }
     }
 }

@@ -49,6 +49,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.lbLimparArquivo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -100,14 +101,14 @@
             // lbNumSeq
             // 
             this.lbNumSeq.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbNumSeq.AutoSize = true;
             this.lbNumSeq.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbNumSeq.Location = new System.Drawing.Point(62, 401);
+            this.lbNumSeq.Location = new System.Drawing.Point(66, 401);
             this.lbNumSeq.Name = "lbNumSeq";
-            this.lbNumSeq.Size = new System.Drawing.Size(141, 23);
+            this.lbNumSeq.Size = new System.Drawing.Size(152, 23);
             this.lbNumSeq.TabIndex = 5;
             this.lbNumSeq.Text = "Num. sequencial:";
+            this.lbNumSeq.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbSetor
             // 
@@ -116,36 +117,36 @@
             this.tbSetor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSetor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.tbSetor.Location = new System.Drawing.Point(224, 471);
+            this.tbSetor.Location = new System.Drawing.Point(242, 471);
             this.tbSetor.MaxLength = 70;
             this.tbSetor.Name = "tbSetor";
-            this.tbSetor.Size = new System.Drawing.Size(258, 29);
+            this.tbSetor.Size = new System.Drawing.Size(240, 29);
             this.tbSetor.TabIndex = 3;
             this.tbSetor.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
             // 
             // lbSetor
             // 
             this.lbSetor.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbSetor.AutoSize = true;
             this.lbSetor.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbSetor.Location = new System.Drawing.Point(148, 471);
+            this.lbSetor.Location = new System.Drawing.Point(66, 471);
             this.lbSetor.Name = "lbSetor";
-            this.lbSetor.Size = new System.Drawing.Size(55, 23);
+            this.lbSetor.Size = new System.Drawing.Size(152, 23);
             this.lbSetor.TabIndex = 9;
             this.lbSetor.Text = "Setor:";
+            this.lbSetor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbNumOficio
             // 
             this.lbNumOficio.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbNumOficio.AutoSize = true;
             this.lbNumOficio.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbNumOficio.Location = new System.Drawing.Point(103, 436);
+            this.lbNumOficio.Location = new System.Drawing.Point(66, 436);
             this.lbNumOficio.Name = "lbNumOficio";
-            this.lbNumOficio.Size = new System.Drawing.Size(100, 23);
+            this.lbNumOficio.Size = new System.Drawing.Size(152, 23);
             this.lbNumOficio.TabIndex = 10;
             this.lbNumOficio.Text = "Núm. ofício:";
+            this.lbNumOficio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbResultado
             // 
@@ -204,7 +205,7 @@
             this.mtbNumOficio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumOficio.HidePromptOnLeave = true;
-            this.mtbNumOficio.Location = new System.Drawing.Point(224, 436);
+            this.mtbNumOficio.Location = new System.Drawing.Point(242, 436);
             this.mtbNumOficio.Mask = "0000";
             this.mtbNumOficio.Name = "mtbNumOficio";
             this.mtbNumOficio.Size = new System.Drawing.Size(59, 29);
@@ -220,7 +221,7 @@
             this.mtbNumSeq.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumSeq.HidePromptOnLeave = true;
-            this.mtbNumSeq.Location = new System.Drawing.Point(224, 401);
+            this.mtbNumSeq.Location = new System.Drawing.Point(242, 401);
             this.mtbNumSeq.Mask = "0000";
             this.mtbNumSeq.Name = "mtbNumSeq";
             this.mtbNumSeq.Size = new System.Drawing.Size(59, 29);
@@ -274,7 +275,7 @@
             this.btAbrirArquivo.TabIndex = 19;
             this.ttInfo.SetToolTip(this.btAbrirArquivo, "Abrir arquivo");
             this.btAbrirArquivo.UseVisualStyleBackColor = false;
-            this.btAbrirArquivo.Click += new System.EventHandler(this.btAbrirArquivo_Click);
+            this.btAbrirArquivo.MouseCaptureChanged += new System.EventHandler(this.btAbrirArquivo_Click);
             // 
             // pictureBox1
             // 
@@ -299,6 +300,18 @@
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
             // 
+            // lbLimparArquivo
+            // 
+            this.lbLimparArquivo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbLimparArquivo.BackColor = System.Drawing.SystemColors.Window;
+            this.lbLimparArquivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbLimparArquivo.Image = ((System.Drawing.Image)(resources.GetObject("lbLimparArquivo.Image")));
+            this.lbLimparArquivo.Location = new System.Drawing.Point(422, 330);
+            this.lbLimparArquivo.Name = "lbLimparArquivo";
+            this.lbLimparArquivo.Size = new System.Drawing.Size(20, 20);
+            this.lbLimparArquivo.TabIndex = 22;
+            this.lbLimparArquivo.Click += new System.EventHandler(this.lbLimparArquivo_Click);
+            // 
             // FormPrincipal
             // 
             this.AcceptButton = this.btRenomear;
@@ -306,6 +319,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1199, 674);
+            this.Controls.Add(this.lbLimparArquivo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btAbrirArquivo);
@@ -358,6 +372,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip ttInfo;
+        private System.Windows.Forms.Label lbLimparArquivo;
     }
 }
 
