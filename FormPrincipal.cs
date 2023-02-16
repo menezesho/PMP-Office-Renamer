@@ -73,7 +73,7 @@ namespace oficios
                     arqDestino = Path.GetFileName(mtbNumSeq.Text + " - " + mtbNumOficio.Text + " " + tbSetor.Text);
                 }
 
-                if (mtbNumOficio.Text == "" || mtbNumOficio.Text == "" || (mtbNumSeq.Enabled == true && mtbNumSeq.Text == ""))
+                if (tbSetor.Text == "" || mtbNumOficio.Text == "" || (mtbNumSeq.Enabled == true && mtbNumSeq.Text == ""))
                 {
                     MessageBox.Show("Preencha todos os campos para renomear o arquivo!", "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -102,7 +102,6 @@ namespace oficios
                         tbSetor.Clear();
                         tbResultado.Clear();
                         tbArquivoSelecionado.Clear();
-                        mtbNumOficio.Focus();
                         this.origem = "";
 
                     }

@@ -206,7 +206,7 @@
             this.mtbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumOficio.HidePromptOnLeave = true;
             this.mtbNumOficio.Location = new System.Drawing.Point(242, 436);
-            this.mtbNumOficio.Mask = "0000";
+            this.mtbNumOficio.Mask = "000";
             this.mtbNumOficio.Name = "mtbNumOficio";
             this.mtbNumOficio.Size = new System.Drawing.Size(59, 29);
             this.mtbNumOficio.TabIndex = 2;
@@ -222,7 +222,7 @@
             this.mtbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumSeq.HidePromptOnLeave = true;
             this.mtbNumSeq.Location = new System.Drawing.Point(242, 401);
-            this.mtbNumSeq.Mask = "0000";
+            this.mtbNumSeq.Mask = "000";
             this.mtbNumSeq.Name = "mtbNumSeq";
             this.mtbNumSeq.Size = new System.Drawing.Size(59, 29);
             this.mtbNumSeq.TabIndex = 1;
@@ -234,6 +234,7 @@
             // 
             this.checkEnviados.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkEnviados.AutoSize = true;
+            this.checkEnviados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkEnviados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkEnviados.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEnviados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
@@ -242,6 +243,7 @@
             this.checkEnviados.Size = new System.Drawing.Size(97, 27);
             this.checkEnviados.TabIndex = 17;
             this.checkEnviados.Text = "Enviados";
+            this.ttInfo.SetToolTip(this.checkEnviados, "Ofícios enviados");
             this.checkEnviados.UseVisualStyleBackColor = true;
             this.checkEnviados.Click += new System.EventHandler(this.checkEnviados_Click);
             // 
@@ -249,6 +251,7 @@
             // 
             this.checkRecebidos.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkRecebidos.AutoSize = true;
+            this.checkRecebidos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkRecebidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkRecebidos.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkRecebidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
@@ -257,6 +260,7 @@
             this.checkRecebidos.Size = new System.Drawing.Size(107, 27);
             this.checkRecebidos.TabIndex = 18;
             this.checkRecebidos.Text = "Recebidos";
+            this.ttInfo.SetToolTip(this.checkRecebidos, "Ofícios recebidos");
             this.checkRecebidos.UseVisualStyleBackColor = true;
             this.checkRecebidos.Click += new System.EventHandler(this.checkRecebidos_Click);
             // 
@@ -310,6 +314,7 @@
             this.lbLimparArquivo.Name = "lbLimparArquivo";
             this.lbLimparArquivo.Size = new System.Drawing.Size(20, 20);
             this.lbLimparArquivo.TabIndex = 22;
+            this.ttInfo.SetToolTip(this.lbLimparArquivo, "Fechar arquivo");
             this.lbLimparArquivo.Click += new System.EventHandler(this.lbLimparArquivo_Click);
             // 
             // FormPrincipal
