@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace oficios.Properties
+namespace Renomeador_de_Oficios.Properties
 {
 
 

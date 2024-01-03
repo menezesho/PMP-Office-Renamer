@@ -61,6 +61,7 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Oficio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPrincipal.resx">
@@ -91,9 +92,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Assets\Images\icon-open-file.png" />
-    <Content Include="Assets\Icons\logo-pmp.ico" />
-    <Content Include="Assets\Images\logo-pmp.jpg" />
+    <Content Include="Assets\Icons\icon-open-file.png" />
+    <Content Include="Assets\Images\brasao.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

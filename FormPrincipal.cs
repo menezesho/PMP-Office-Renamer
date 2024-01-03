@@ -1,13 +1,15 @@
 ﻿using PdfiumViewer;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
-namespace oficios
+namespace Renomeador_de_Oficios
 {
     public partial class FormPrincipal : Form
     {
-        string origem = null; // Variável que armazena o caminho do arquivo selecionado
+        List<Oficio> oficios = new List<Oficio>(); // Lista de ofícios
+        Oficio oficioSelecionado = null;
 
         public FormPrincipal()
         {
@@ -16,91 +18,131 @@ namespace oficios
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            rbRecebidos.Checked = true; // Inicia com o checkbox de recebidos marcado
+            rbtRecebidos.Checked = true; // Inicia com o checkbox de recebidos marcado
 
             // Verifica se o checkbox de recebidos está marcado, se sim, desabilita o campo de numeração sequencial
-            if (rbEnviados.Checked)
-                mtbNumSeq.Enabled = false;
+            if (rbtEnviados.Checked)
+                mtbNumControle.Enabled = false;
+        }
+
+        #region Chenged
+
+        private void lstOficios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Percorre todos os ofícios da lista
+            foreach (var oficio in oficios)
+            {
+                // Verifica se o ofício selecionado é igual ao ofício da lista
+                if (oficio.Id == int.Parse(lstOficios.SelectedValue.ToString()))
+                {
+                    openFile(oficio);
+
+                    oficioSelecionado = new Oficio();
+                    oficioSelecionado.Nome = txtArquivoSelecionado.Text = oficio.Nome;
+                    oficioSelecionado.Caminho = oficio.Caminho;
+                }
+            }
         }
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbRecebidos.Checked)
+            if (rbtRecebidos.Checked)
             {
-                mtbNumSeq.Enabled = true;
+                mtbNumControle.Enabled = true;
             }
-            else if (rbEnviados.Checked)
+            else if (rbtEnviados.Checked)
             {
-                mtbNumSeq.Enabled = false;
-                mtbNumSeq.Clear();
+                mtbNumControle.Enabled = false;
+                mtbNumControle.Clear();
             }
         }
 
         private void allTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (rbEnviados.Checked == true)
-                tbResultado.Text = $"{mtbNumOficio.Text} - {tbSetor.Text}";
+            // Este evento ocorre em todas as TextBox e MaskedTextBox do formulário para atualizar o campo de resultado
+
+            if (rbtEnviados.Checked == true)
+                txtResultado.Text = $"{mtbNumOficio.Text} - {txtSetor.Text}";
             else
-                tbResultado.Text = $"{mtbNumSeq.Text} - {mtbNumOficio.Text} {tbSetor.Text}";
+                txtResultado.Text = $"{mtbNumControle.Text} - {mtbNumOficio.Text} {txtSetor.Text}";
         }
+
+        #endregion
 
         #region Botões
 
-        private void btAbrirArquivo_Click(object sender, EventArgs e)
+        private void btnSelecionar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog(); // Cria um objeto do tipo OpenFileDialog
+            // Abre a janela de seleção de arquivos
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Selecione os ofícios";
+            openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "Arquivos PDF (*.pdf)|*.pdf";
+
+            lstOficios.DataSource = null; // Limpa o ListBox de ofícios
+            lstOficios.DisplayMember = "Nome"; // Define o campo que será exibido no ListBox
+            lstOficios.ValueMember = "Id"; // Define o campo que será usado para identificar o objeto selecionado
 
             try
             {
-                // Caso o usuário clique em OK, abre o arquivo selecionado
-                if (ofd.ShowDialog() == DialogResult.OK)
+                // Caso o usuário clique em OK
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    origem = ofd.FileName; // Armazena o caminho do arquivo selecionado na variável origem
+                    oficios = new List<Oficio>(); // Limpa a lista de ofícios
+                    int indice = 0;
 
-                    // Verifica se o arquivo selecionado é um arquivo PDF
-                    if (origem.Contains(".pdf"))
+                    // Percorre todos os arquivos selecionados
+                    foreach (var arquivo in openFileDialog.FileNames)
                     {
-                        openFile(ofd.FileName); // Chama a função openFile passando o caminho do arquivo selecionado
-                        tbArquivoSelecionado.Text = Path.GetFileName(origem);
+                        Oficio oficio = new Oficio();
+                        oficio.Id = indice;
+                        oficio.Nome = Path.GetFileName(arquivo); // Pega o nome do arquivo
+                        oficio.Caminho = arquivo;
+
+                        oficios.Add(oficio); // Adiciona o ofício na lista
+                        indice++;
                     }
-                    else
-                    {
-                        MessageBox.Show("Formato de arquivo inválido!\nO arquivo selecionado deve ser do tipo PDF (.pdf).", "Verificação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        origem = null;
-                        return;
-                    }
+
+                    lstOficios.DataSource = oficios; // Carrega a lista de ofícios no componente ListBox
+                    pbxBrasao.Visible = false; // Oculta o componente PictureBox
                 }
             }
-            catch
+            catch (Exception erro)
             {
-                MessageBox.Show("Formato de arquivo inválido!\nO arquivo selecionado deve ser do tipo PDF (.pdf).", "Verificação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                origem = null;
-                return;
+                Console.WriteLine("Erro: " + erro);
+                MessageBox.Show("Erro ao renomear os arquivos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnLimparLista_Click(object sender, EventArgs e)
+        {
+            oficios = new List<Oficio>(); // Limpa a lista de ofícios
+            lstOficios.DataSource = null; // Limpa o ListBox de ofícios
+            oficioSelecionado = null; // Limpa o objeto de ofício selecionado
+            txtArquivoSelecionado.Clear(); // Limpa o campo de arquivo selecionado
         }
 
         private void lbLimparArquivo_Click(object sender, EventArgs e)
         {
-            tbArquivoSelecionado.Clear();
-            origem = null;
+            oficioSelecionado = null; // Limpa o objeto de ofício selecionado
+            txtArquivoSelecionado.Clear();
         }
 
         private void btRenomear_Click(object sender, EventArgs e)
         {
             #region Verificações
 
-
             // Caso a origem esteja vazia, exibe uma mensagem de erro
-            if (origem == null)
+            if (oficioSelecionado == null)
             {
-                MessageBox.Show("Nenhum arquivo foi selecionado!", "Verificação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nenhum ofício foi selecionado!", "Verificação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Verifica se todas as informações foram preenchidas
-            if (string.IsNullOrEmpty(tbSetor.Text) || string.IsNullOrEmpty(mtbNumOficio.Text) || (mtbNumSeq.Enabled && string.IsNullOrEmpty(mtbNumSeq.Text)))
+            if (string.IsNullOrEmpty(txtSetor.Text) || string.IsNullOrEmpty(mtbNumOficio.Text) || (mtbNumControle.Enabled && string.IsNullOrEmpty(mtbNumControle.Text)))
             {
-                MessageBox.Show("Todos os campos devem ser preenchidos!", "Verificação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Todos os campos devem ser preenchidos!", "Verificação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -110,16 +152,7 @@ namespace oficios
             {
                 // Verifica se os campos numéricos foram preenchidos corretamente
                 int? testeNumOficio = string.IsNullOrEmpty(mtbNumOficio.Text) ? null : (int?)int.Parse(mtbNumOficio.Text);
-                int? testeCodSeq = string.IsNullOrEmpty(mtbNumSeq.Text) ? null : (int?)int.Parse(mtbNumSeq.Text);
-
-                //if (!string.IsNullOrEmpty(mtbNumOficio.Text))
-                //{
-                //    int testeNumOficio = int.Parse(mtbNumOficio.Text);
-                //}
-                //if (mtbNumSeq.Text != "")
-                //{
-                //    int testeCodSeq = int.Parse(mtbNumSeq.Text);
-                //}
+                int? testeCodSeq = string.IsNullOrEmpty(mtbNumControle.Text) ? null : (int?)int.Parse(mtbNumControle.Text);
             }
             catch
             {
@@ -127,17 +160,17 @@ namespace oficios
                 return;
             }
 
-            string diretorio = Path.GetDirectoryName(origem); // Armazena o diretório do arquivo selecionado
-            string arqOrigem = Path.GetFileName(origem); // Armazena o nome do arquivo selecionado
+            string diretorio = Path.GetDirectoryName(oficioSelecionado.Caminho); // Armazena o diretório do arquivo selecionado
+            string arqOrigem = Path.GetFileName(oficioSelecionado.Caminho); // Armazena o nome do arquivo selecionado
             string arqDestino = null; // Variável que armazena o nome do arquivo de destino
 
             // Caso o checkbox "Enviados" esteja marcado
-            if (rbEnviados.Checked)
-                arqDestino = Path.GetFileName($"{mtbNumOficio.Text} - {tbSetor.Text}");
+            if (rbtEnviados.Checked)
+                arqDestino = Path.GetFileName($"{mtbNumOficio.Text} - {txtSetor.Text}");
 
             // Caso o checkbox "Recebidos" esteja marcado
-            else if (rbRecebidos.Checked)
-                arqDestino = Path.GetFileName($"{mtbNumSeq.Text} - {mtbNumOficio.Text} - {tbSetor.Text}");
+            else if (rbtRecebidos.Checked)
+                arqDestino = Path.GetFileName($"{mtbNumControle.Text} - {mtbNumOficio.Text} - {txtSetor.Text}");
 
             // Verifica se o arquivo de destino já existe
             if (arqDestino == arqOrigem)
@@ -148,32 +181,25 @@ namespace oficios
 
             try
             {
-                File.Move(origem, $@"{diretorio}\{arqDestino}.pdf"); // Renomeia o arquivo
+                File.Move(oficioSelecionado.Caminho, $@"{diretorio}\{arqDestino}.pdf"); // Renomeia o arquivo
+
                 MessageBox.Show("Arquivo renomeado com sucesso!", "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Caso o checkbox "Enviados" esteja marcado
-                if (rbRecebidos.Checked)
-                {
-                    int auxNumSeq = int.Parse(mtbNumSeq.Text); // Variável auxiliar que armazena o valor do campo de numeração sequencial
-                    auxNumSeq += 1; // Incrementa o valor da variável auxiliar
+                incrementarNumeracao(); // Chama a função que incrementa a numeração sequencial caso seja um ofício "Enviado"
+                removerOficioRenomeado(); // Chama a função que remove o ofício da lista de ofícios
 
-                    // Verifica se o valor da variável auxiliar é maior ou igual a 99, se sim, atribui o valor da variável auxiliar ao campo de numeração sequencial
-                    if (int.Parse(mtbNumSeq.Text) >= 99)
-                        mtbNumSeq.Text = auxNumSeq.ToString();
-                    else 
-                        mtbNumSeq.Text = "0" + auxNumSeq.ToString();
-                }
-
+                mtbNumControle.Clear();
                 mtbNumOficio.Clear();
-                tbSetor.Clear();
-                tbResultado.Clear();
-                tbArquivoSelecionado.Clear();
-                origem = null;
-
+                txtSetor.Clear();
+                txtResultado.Clear();
+                txtArquivoSelecionado.Clear();
+                oficioSelecionado = null; // Limpa o objeto de ofício selecionado
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro, "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Erro: " + erro);
+                MessageBox.Show("Erro ao renomear ofício!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
@@ -181,12 +207,47 @@ namespace oficios
 
         #region Funções
 
-        public void openFile(string caminhoArquivo)
+        private void openFile(Oficio oficio)
         {
+            string caminhoArquivo = oficio.Caminho; // Pega o caminho do arquivo
             byte[] bytes = System.IO.File.ReadAllBytes(caminhoArquivo); // Lê o arquivo selecionado e armazena em um array de bytes
             var stream = new System.IO.MemoryStream(bytes); // Cria um stream de memória para armazenar o array de bytes
             PdfDocument documentoPdf = PdfDocument.Load(stream); // Carrega o arquivo PDF no stream de memória
-            pdf.Document = documentoPdf; // Carrega o arquivo PDF no componente pdf
+            pdfViewer.Document = documentoPdf; // Carrega o arquivo PDF no componente pdf
+        }
+
+        private void incrementarNumeracao()
+        {
+            // Caso o checkbox "Enviados" esteja marcado
+            if (rbtRecebidos.Checked)
+            {
+                int auxNumSeq = int.Parse(mtbNumControle.Text); // Variável auxiliar que armazena o valor do campo de numeração sequencial
+                auxNumSeq += 1; // Incrementa o valor da variável auxiliar
+
+                // Verifica se o valor da variável auxiliar é maior ou igual a 99, se sim, atribui o valor da variável auxiliar ao campo de numeração sequencial
+                if (int.Parse(mtbNumControle.Text) >= 99)
+                    mtbNumControle.Text = auxNumSeq.ToString();
+                else
+                    mtbNumControle.Text = "0" + auxNumSeq.ToString();
+            }
+        }
+
+        private void removerOficioRenomeado()
+        {
+            foreach (var oficio in oficios)
+            {
+                if (oficioSelecionado.Id == int.Parse(lstOficios.SelectedValue.ToString()))
+                {
+                    oficios.Remove(oficio);
+                    break;
+                }
+            }
+
+            lstOficios.DataSource = null; // Recarrega a lista de ofícios no componente ListBox
+
+            lstOficios.DataSource = oficios; // Recarrega a lista de ofícios no componente ListBox
+            lstOficios.DisplayMember = "Nome"; // Define o campo que será exibido no ListBox
+            lstOficios.ValueMember = "Id"; // Define o campo que será usado para identificar o objeto selecionado
         }
 
         #endregion
