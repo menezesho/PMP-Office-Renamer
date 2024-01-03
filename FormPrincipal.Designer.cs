@@ -43,13 +43,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mtbNumOficio = new System.Windows.Forms.MaskedTextBox();
             this.mtbNumSeq = new System.Windows.Forms.MaskedTextBox();
-            this.checkEnviados = new System.Windows.Forms.CheckBox();
-            this.checkRecebidos = new System.Windows.Forms.CheckBox();
             this.btAbrirArquivo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.lbLimparArquivo = new System.Windows.Forms.Label();
+            this.rbRecebidos = new System.Windows.Forms.RadioButton();
+            this.rbEnviados = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             this.btRenomear.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btRenomear.BackColor = System.Drawing.Color.White;
             this.btRenomear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btRenomear.FlatAppearance.BorderSize = 0;
             this.btRenomear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRenomear.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRenomear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
@@ -66,7 +67,7 @@
             this.btRenomear.Name = "btRenomear";
             this.btRenomear.Size = new System.Drawing.Size(179, 35);
             this.btRenomear.TabIndex = 5;
-            this.btRenomear.Text = "&Renomear";
+            this.btRenomear.Text = "&Renomear ✓";
             this.ttInfo.SetToolTip(this.btRenomear, "Renomear ofício");
             this.btRenomear.UseVisualStyleBackColor = false;
             this.btRenomear.Click += new System.EventHandler(this.btRenomear_Click);
@@ -89,26 +90,27 @@
             // lbArquivo
             // 
             this.lbArquivo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbArquivo.AutoSize = true;
             this.lbArquivo.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbArquivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbArquivo.Location = new System.Drawing.Point(66, 299);
+            this.lbArquivo.Location = new System.Drawing.Point(61, 298);
             this.lbArquivo.Name = "lbArquivo";
-            this.lbArquivo.Size = new System.Drawing.Size(416, 24);
+            this.lbArquivo.Size = new System.Drawing.Size(191, 25);
             this.lbArquivo.TabIndex = 4;
             this.lbArquivo.Text = "Arquivo selecionado:";
-            this.lbArquivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbArquivo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbNumSeq
             // 
             this.lbNumSeq.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbNumSeq.AutoSize = true;
             this.lbNumSeq.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbNumSeq.Location = new System.Drawing.Point(66, 401);
+            this.lbNumSeq.Location = new System.Drawing.Point(61, 400);
             this.lbNumSeq.Name = "lbNumSeq";
-            this.lbNumSeq.Size = new System.Drawing.Size(152, 23);
+            this.lbNumSeq.Size = new System.Drawing.Size(160, 25);
             this.lbNumSeq.TabIndex = 5;
             this.lbNumSeq.Text = "Num. sequencial:";
-            this.lbNumSeq.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbSetor
             // 
@@ -117,48 +119,49 @@
             this.tbSetor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSetor.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.tbSetor.Location = new System.Drawing.Point(242, 471);
+            this.tbSetor.Location = new System.Drawing.Point(129, 471);
             this.tbSetor.MaxLength = 70;
             this.tbSetor.Name = "tbSetor";
-            this.tbSetor.Size = new System.Drawing.Size(240, 29);
+            this.tbSetor.Size = new System.Drawing.Size(353, 29);
             this.tbSetor.TabIndex = 3;
             this.tbSetor.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
             // 
             // lbSetor
             // 
             this.lbSetor.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbSetor.AutoSize = true;
             this.lbSetor.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbSetor.Location = new System.Drawing.Point(66, 471);
+            this.lbSetor.Location = new System.Drawing.Point(61, 470);
             this.lbSetor.Name = "lbSetor";
-            this.lbSetor.Size = new System.Drawing.Size(152, 23);
+            this.lbSetor.Size = new System.Drawing.Size(62, 25);
             this.lbSetor.TabIndex = 9;
             this.lbSetor.Text = "Setor:";
-            this.lbSetor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbNumOficio
             // 
             this.lbNumOficio.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbNumOficio.AutoSize = true;
             this.lbNumOficio.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbNumOficio.Location = new System.Drawing.Point(66, 436);
+            this.lbNumOficio.Location = new System.Drawing.Point(61, 435);
             this.lbNumOficio.Name = "lbNumOficio";
-            this.lbNumOficio.Size = new System.Drawing.Size(152, 23);
+            this.lbNumOficio.Size = new System.Drawing.Size(118, 25);
             this.lbNumOficio.TabIndex = 10;
             this.lbNumOficio.Text = "Núm. ofício:";
-            this.lbNumOficio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbResultado
             // 
             this.lbResultado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbResultado.AutoSize = true;
             this.lbResultado.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.lbResultado.Location = new System.Drawing.Point(66, 541);
+            this.lbResultado.Location = new System.Drawing.Point(61, 541);
             this.lbResultado.Name = "lbResultado";
-            this.lbResultado.Size = new System.Drawing.Size(416, 24);
+            this.lbResultado.Size = new System.Drawing.Size(102, 25);
             this.lbResultado.TabIndex = 12;
             this.lbResultado.Text = "Resultado:";
-            this.lbResultado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbResultado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbResultado
             // 
@@ -205,7 +208,7 @@
             this.mtbNumOficio.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumOficio.HidePromptOnLeave = true;
-            this.mtbNumOficio.Location = new System.Drawing.Point(242, 436);
+            this.mtbNumOficio.Location = new System.Drawing.Point(185, 436);
             this.mtbNumOficio.Mask = "000";
             this.mtbNumOficio.Name = "mtbNumOficio";
             this.mtbNumOficio.Size = new System.Drawing.Size(59, 29);
@@ -221,7 +224,7 @@
             this.mtbNumSeq.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbNumSeq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.mtbNumSeq.HidePromptOnLeave = true;
-            this.mtbNumSeq.Location = new System.Drawing.Point(242, 401);
+            this.mtbNumSeq.Location = new System.Drawing.Point(227, 401);
             this.mtbNumSeq.Mask = "000";
             this.mtbNumSeq.Name = "mtbNumSeq";
             this.mtbNumSeq.Size = new System.Drawing.Size(59, 29);
@@ -229,40 +232,6 @@
             this.mtbNumSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbNumSeq.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtbNumSeq.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
-            // 
-            // checkEnviados
-            // 
-            this.checkEnviados.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.checkEnviados.AutoSize = true;
-            this.checkEnviados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkEnviados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkEnviados.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEnviados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.checkEnviados.Location = new System.Drawing.Point(284, 237);
-            this.checkEnviados.Name = "checkEnviados";
-            this.checkEnviados.Size = new System.Drawing.Size(104, 29);
-            this.checkEnviados.TabIndex = 17;
-            this.checkEnviados.Text = "Enviados";
-            this.ttInfo.SetToolTip(this.checkEnviados, "Ofícios enviados");
-            this.checkEnviados.UseVisualStyleBackColor = true;
-            this.checkEnviados.Click += new System.EventHandler(this.checkEnviados_Click);
-            // 
-            // checkRecebidos
-            // 
-            this.checkRecebidos.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.checkRecebidos.AutoSize = true;
-            this.checkRecebidos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkRecebidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkRecebidos.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkRecebidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.checkRecebidos.Location = new System.Drawing.Point(160, 237);
-            this.checkRecebidos.Name = "checkRecebidos";
-            this.checkRecebidos.Size = new System.Drawing.Size(115, 29);
-            this.checkRecebidos.TabIndex = 18;
-            this.checkRecebidos.Text = "Recebidos";
-            this.ttInfo.SetToolTip(this.checkRecebidos, "Ofícios recebidos");
-            this.checkRecebidos.UseVisualStyleBackColor = true;
-            this.checkRecebidos.Click += new System.EventHandler(this.checkRecebidos_Click);
             // 
             // btAbrirArquivo
             // 
@@ -317,6 +286,40 @@
             this.ttInfo.SetToolTip(this.lbLimparArquivo, "Fechar arquivo");
             this.lbLimparArquivo.Click += new System.EventHandler(this.lbLimparArquivo_Click);
             // 
+            // rbRecebidos
+            // 
+            this.rbRecebidos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rbRecebidos.AutoSize = true;
+            this.rbRecebidos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbRecebidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbRecebidos.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbRecebidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.rbRecebidos.Location = new System.Drawing.Point(160, 231);
+            this.rbRecebidos.Name = "rbRecebidos";
+            this.rbRecebidos.Size = new System.Drawing.Size(116, 29);
+            this.rbRecebidos.TabIndex = 23;
+            this.rbRecebidos.TabStop = true;
+            this.rbRecebidos.Text = "Recebidos";
+            this.rbRecebidos.UseVisualStyleBackColor = true;
+            this.rbRecebidos.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // rbEnviados
+            // 
+            this.rbEnviados.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rbEnviados.AutoSize = true;
+            this.rbEnviados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbEnviados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbEnviados.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbEnviados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.rbEnviados.Location = new System.Drawing.Point(283, 231);
+            this.rbEnviados.Name = "rbEnviados";
+            this.rbEnviados.Size = new System.Drawing.Size(105, 29);
+            this.rbEnviados.TabIndex = 24;
+            this.rbEnviados.TabStop = true;
+            this.rbEnviados.Text = "Enviados";
+            this.rbEnviados.UseVisualStyleBackColor = true;
+            this.rbEnviados.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
             // FormPrincipal
             // 
             this.AcceptButton = this.btRenomear;
@@ -324,12 +327,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1199, 674);
+            this.Controls.Add(this.rbEnviados);
+            this.Controls.Add(this.rbRecebidos);
             this.Controls.Add(this.lbLimparArquivo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btAbrirArquivo);
-            this.Controls.Add(this.checkRecebidos);
-            this.Controls.Add(this.checkEnviados);
             this.Controls.Add(this.mtbNumSeq);
             this.Controls.Add(this.mtbNumOficio);
             this.Controls.Add(this.label3);
@@ -371,13 +374,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox mtbNumOficio;
         private System.Windows.Forms.MaskedTextBox mtbNumSeq;
-        private System.Windows.Forms.CheckBox checkEnviados;
-        private System.Windows.Forms.CheckBox checkRecebidos;
         private System.Windows.Forms.Button btAbrirArquivo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip ttInfo;
         private System.Windows.Forms.Label lbLimparArquivo;
+        private System.Windows.Forms.RadioButton rbRecebidos;
+        private System.Windows.Forms.RadioButton rbEnviados;
     }
 }
 

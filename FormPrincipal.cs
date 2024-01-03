@@ -16,11 +16,32 @@ namespace oficios
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            checkRecebidos.Checked = true; // Inicia com o checkbox de recebidos marcado
+            rbRecebidos.Checked = true; // Inicia com o checkbox de recebidos marcado
 
             // Verifica se o checkbox de recebidos está marcado, se sim, desabilita o campo de numeração sequencial
-            if (checkEnviados.Checked)
+            if (rbEnviados.Checked)
                 mtbNumSeq.Enabled = false;
+        }
+
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbRecebidos.Checked)
+            {
+                mtbNumSeq.Enabled = true;
+            }
+            else if (rbEnviados.Checked)
+            {
+                mtbNumSeq.Enabled = false;
+                mtbNumSeq.Clear();
+            }
+        }
+
+        private void allTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (rbEnviados.Checked == true)
+                tbResultado.Text = $"{mtbNumOficio.Text} - {tbSetor.Text}";
+            else
+                tbResultado.Text = $"{mtbNumSeq.Text} - {mtbNumOficio.Text} {tbSetor.Text}";
         }
 
         #region Botões
@@ -111,11 +132,11 @@ namespace oficios
             string arqDestino = null; // Variável que armazena o nome do arquivo de destino
 
             // Caso o checkbox "Enviados" esteja marcado
-            if (checkEnviados.Checked)
+            if (rbEnviados.Checked)
                 arqDestino = Path.GetFileName($"{mtbNumOficio.Text} - {tbSetor.Text}");
 
             // Caso o checkbox "Recebidos" esteja marcado
-            else if (checkRecebidos.Checked)
+            else if (rbRecebidos.Checked)
                 arqDestino = Path.GetFileName($"{mtbNumSeq.Text} - {mtbNumOficio.Text} - {tbSetor.Text}");
 
             // Verifica se o arquivo de destino já existe
@@ -131,7 +152,7 @@ namespace oficios
                 MessageBox.Show("Arquivo renomeado com sucesso!", "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Caso o checkbox "Enviados" esteja marcado
-                if (checkRecebidos.Checked)
+                if (rbRecebidos.Checked)
                 {
                     int auxNumSeq = int.Parse(mtbNumSeq.Text); // Variável auxiliar que armazena o valor do campo de numeração sequencial
                     auxNumSeq += 1; // Incrementa o valor da variável auxiliar
@@ -158,34 +179,7 @@ namespace oficios
 
         #endregion
 
-        #region Checkboxes
-
-        private void checkEnviados_Click(object sender, EventArgs e)
-        {
-            checkRecebidos.Checked = false;
-            checkEnviados.Checked = true;
-            mtbNumSeq.Enabled = false;
-            mtbNumSeq.Clear();
-        }
-
-        private void checkRecebidos_Click(object sender, EventArgs e)
-        {
-            checkEnviados.Checked = false;
-            checkRecebidos.Checked = true;
-            mtbNumSeq.Enabled = true;
-        }
-        
-        #endregion
-
         #region Funções
-
-        private void allTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (checkEnviados.Checked == true)
-                tbResultado.Text = $"{mtbNumOficio.Text} - {tbSetor.Text}";
-            else
-                tbResultado.Text = $"{mtbNumSeq.Text} - {mtbNumOficio.Text} {tbSetor.Text}";
-        }
 
         public void openFile(string caminhoArquivo)
         {
