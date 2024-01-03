@@ -234,20 +234,20 @@ namespace Renomeador_de_Oficios
 
         private void removerOficioRenomeado()
         {
-            foreach (var oficio in oficios)
-            {
-                if (oficioSelecionado.Id == int.Parse(lstOficios.SelectedValue.ToString()))
-                {
-                    oficios.Remove(oficio);
-                    break;
-                }
-            }
+            //foreach (var oficio in oficios)
+            //{
+            //    if (oficioSelecionado.Id == int.Parse(lstOficios.SelectedValue.ToString()))
+            //    {
+            //        oficios.Remove(oficio);
+            //        break;
+            //    }
+            //}
 
-            lstOficios.DataSource = null; // Recarrega a lista de ofícios no componente ListBox
+            //lstOficios.DataSource = null; // Recarrega a lista de ofícios no componente ListBox
 
-            lstOficios.DataSource = oficios; // Recarrega a lista de ofícios no componente ListBox
-            lstOficios.DisplayMember = "Nome"; // Define o campo que será exibido no ListBox
-            lstOficios.ValueMember = "Id"; // Define o campo que será usado para identificar o objeto selecionado
+            //lstOficios.DataSource = oficios; // Recarrega a lista de ofícios no componente ListBox
+            //lstOficios.DisplayMember = "Nome"; // Define o campo que será exibido no ListBox
+            //lstOficios.ValueMember = "Id"; // Define o campo que será usado para identificar o objeto selecionado
         }
 
         #endregion
