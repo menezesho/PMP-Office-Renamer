@@ -30,7 +30,7 @@
     <ProductName>Renomeador de ofícios</ProductName>
     <PublisherName>H2</PublisherName>
     <SuiteName>Renomeador de ofícios</SuiteName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -144,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Icons\brasao.ico" />
+    <Content Include="Assets\Icons\icon-change.png" />
+    <Content Include="Assets\Icons\icon-delete.png" />
+    <Content Include="Assets\Icons\icon-pdf.png" />
     <Content Include="Assets\Icons\logo-30x30.ico" />
     <Content Include="Assets\Icons\logo100x100.ico" />
   </ItemGroup>
