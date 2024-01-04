@@ -12,6 +12,10 @@ namespace Renomeador_de_Oficios
         List<Oficio> oficios = new List<Oficio>(); // Lista de ofícios
         Oficio oficioSelecionado = null;
 
+        string diretorioEnviados = $@"\\192.168.0.250\secretarias\Seplan\DPD\DOCUMENTOS DIGITALIZADOS\Ofícios\Ofícios Enviados {DateTime.Now.Year.ToString()}"; // Armazena o diretório de ofícios enviados
+        string diretorioRecebidos = $@"\\192.168.0.250\secretarias\Seplan\DPD\DOCUMENTOS DIGITALIZADOS\Ofícios\Ofícios Recebidos {DateTime.Now.Year.ToString()}"; // Armazena o diretório de ofícios recebidos
+        string arqDestino; // Armazena o nome do arquivo de destino
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -79,12 +83,39 @@ namespace Renomeador_de_Oficios
 
         private void allTextBox_TextChanged(object sender, EventArgs e)
         {
+
+            string auxNumOficio = mtbNumOficio.Text.Trim(); ; // Variável auxiliar que armazena o valor do campo de numeração do ofício
+            string auxNumControle = mtbNumControle.Text.Trim(); ; // Variável auxiliar que armazena o valor do campo de numeração sequencial
+
             // Este evento ocorre em todas as TextBox e MaskedTextBox do formulário para atualizar o campo de resultado
+            if (mtbNumOficio.Text.Trim().Length == 2) // Verifica se o campo de numeração do ofício possui menos de 3 caracteres, são os zeros a esquerda
+            {
+                auxNumOficio = "0" + mtbNumOficio.Text.Trim();
+            }
+            else if (mtbNumOficio.Text.Trim().Length == 1)
+            {
+                auxNumOficio = "00" + mtbNumOficio.Text.Trim();
+            }
+
+            if (mtbNumControle.Enabled)
+            {
+                if (mtbNumControle.Text.Trim().Length == 2) // Verifica se o campo de numeração sequencial possui menos de 3 caracteres, são os zeros a esquerda
+                {
+                    auxNumControle = "0" + mtbNumControle.Text.Trim();
+                }
+                else if (mtbNumControle.Text.Trim().Length == 1)
+                {
+                    auxNumControle = "00" + mtbNumControle.Text.Trim();
+                }
+            }
+
+
+
 
             if (rbtEnviados.Checked == true)
-                txtResultado.Text = $"{mtbNumOficio.Text} - {txtSetor.Text}";
+                txtResultado.Text = $"{auxNumOficio} - {txtSetor.Text}";
             else
-                txtResultado.Text = $"{mtbNumControle.Text} - {mtbNumOficio.Text} {txtSetor.Text}";
+                txtResultado.Text = $"{auxNumControle} - {auxNumOficio} {txtSetor.Text}";
         }
 
         #endregion
@@ -122,7 +153,7 @@ namespace Renomeador_de_Oficios
 
                     lstOficios.DataSource = oficios; // Carrega a lista de ofícios no componente ListBox
 
-                    desabilitarCampos();
+                    //desabilitarCampos();
                 }
             }
             catch (Exception erro)
@@ -174,18 +205,30 @@ namespace Renomeador_de_Oficios
                 MessageBox.Show("Verifique se os campos numéricos foram preenchidos corretamente!", "Verificação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            string diretorio = Path.GetDirectoryName(oficioSelecionado.Caminho); // Armazena o diretório do arquivo selecionado
+            
             string arqOrigem = Path.GetFileName(oficioSelecionado.Caminho); // Armazena o nome do arquivo selecionado
-            string arqDestino = null; // Variável que armazena o nome do arquivo de destino
+            arqDestino = null; // Variável que armazena o nome do arquivo de destino
 
-            // Caso o checkbox "Enviados" esteja marcado
-            if (rbtEnviados.Checked)
-                arqDestino = Path.GetFileName($"{mtbNumOficio.Text} - {txtSetor.Text}");
+            if (mtbNumOficio.Text.Trim().Length == 2 ) // Verifica se o campo de numeração do ofício possui menos de 3 caracteres, são os zeros a esquerda
+            {
+                mtbNumOficio.Text = "0" + mtbNumOficio.Text.Trim();
+            }
+            else if (mtbNumOficio.Text.Trim().Length == 1)
+            {
+                mtbNumOficio.Text = "00" + mtbNumOficio.Text.Trim();
+            }
 
-            // Caso o checkbox "Recebidos" esteja marcado
-            else if (rbtRecebidos.Checked)
-                arqDestino = Path.GetFileName($"{mtbNumControle.Text} - {mtbNumOficio.Text} - {txtSetor.Text}");
+
+            if(mtbNumControle.Text.Trim().Length == 2 && mtbNumControle.Enabled)
+            {
+                mtbNumControle.Text = "0" + mtbNumControle.Text.Trim();
+            }
+            else if (mtbNumControle.Text.Trim().Length == 1 && mtbNumControle.Enabled)
+            {
+                mtbNumControle.Text = "00" + mtbNumControle.Text.Trim();
+            }
+
+            arqDestino = Path.GetFileName(txtResultado.Text);
 
             // Verifica se o arquivo de destino já existe
             if (arqDestino == arqOrigem)
@@ -196,15 +239,18 @@ namespace Renomeador_de_Oficios
 
             try
             {
-                File.Move(oficioSelecionado.Caminho, $@"{diretorio}\{arqDestino}.pdf"); // Renomeia o arquivo
+                moverArquivo();// Chama a função que move o arquivo para a pasta de enviados ou recebidos e o renomeia
 
                 MessageBox.Show("Arquivo renomeado com sucesso!", "Renomear", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+               
                 incrementarNumeracao(); // Chama a função que incrementa a numeração sequencial caso seja um ofício "Enviado"
 
                 removerOficioRenomeado(); // Chama a função que remove o ofício da lista de ofícios
 
-                desabilitarCampos(); // Chama a função que desabilita os campos do formulário
+                mtbNumOficio.Clear();
+                txtSetor.Clear();
+                mtbNumOficio.Focus();
+
             }
             catch (Exception erro)
             {
@@ -239,17 +285,21 @@ namespace Renomeador_de_Oficios
 
         private void incrementarNumeracao()
         {
-            // Caso o checkbox "Enviados" esteja marcado
             if (rbtRecebidos.Checked)
             {
-                int auxNumSeq = int.Parse(mtbNumControle.Text); // Variável auxiliar que armazena o valor do campo de numeração sequencial
+                int auxNumSeq = int.Parse(mtbNumControle.Text.Trim()); // Variável auxiliar que armazena o valor do campo de numeração sequencial
                 auxNumSeq += 1; // Incrementa o valor da variável auxiliar
 
-                // Verifica se o valor da variável auxiliar é maior ou igual a 99, se sim, atribui o valor da variável auxiliar ao campo de numeração sequencial
-                if (int.Parse(mtbNumControle.Text) >= 99)
+                // Se o numero tiver 3 digitos não adiciona o zero a esquerda
+                if (mtbNumControle.Text.Trim().Length == 3)
                     mtbNumControle.Text = auxNumSeq.ToString();
-                else
-                    mtbNumControle.Text = "0" + auxNumSeq.ToString();
+                else // Caso contrário, adiciona o zero a esquerda
+                {
+                    if(mtbNumControle.Text.Trim().Length == 2)
+                        mtbNumControle.Text = "0" + auxNumSeq.ToString();
+                    else if (mtbNumControle.Text.Trim().Length == 1)
+                        mtbNumControle.Text = "00" + auxNumSeq.ToString();
+                }
             }
         }
 
@@ -314,6 +364,38 @@ namespace Renomeador_de_Oficios
             txtArquivoSelecionado.Clear();
 
             desabilitarCampos();
+        }
+
+        private void moverArquivo()
+        {
+            try
+            {
+                if (rbtEnviados.Checked == true) // Verifica se o checkbox "Enviados" está marcado
+                {
+                    if (!Directory.Exists(diretorioEnviados)) // Verifica se o diretório de enviados existe, se não, cria o diretório
+                    {
+                        Directory.CreateDirectory(diretorioEnviados);// Cria o diretório de enviados
+                    }
+
+                    File.Move(oficioSelecionado.Caminho, $@"{diretorioEnviados}\{Path.GetFileName(arqDestino)}.pdf"); //renomeia e move o arquivo para a pasta de enviados
+                }
+
+                if (rbtRecebidos.Checked == true) // Verifica se o checkbox "Recebidos" está marcado
+                {
+                    if (!Directory.Exists(diretorioRecebidos))// Verifica se o diretório de recebidos existe, se não, cria o diretório
+                    {
+                        Directory.CreateDirectory(diretorioRecebidos);// Cria o diretório de recebidos
+                    }
+
+                    File.Move(oficioSelecionado.Caminho, $@"{diretorioRecebidos}\{Path.GetFileName(arqDestino)}.pdf");//renomeia e move o arquivo para a pasta de recebidos
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex);
+                MessageBox.Show("Erro ao mover o arquivo para o servidor!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         #endregion
