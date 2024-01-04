@@ -109,9 +109,6 @@ namespace Renomeador_de_Oficios
                 }
             }
 
-
-
-
             if (rbtEnviados.Checked == true)
                 txtResultado.Text = $"{auxNumOficio} - {txtSetor.Text}";
             else
