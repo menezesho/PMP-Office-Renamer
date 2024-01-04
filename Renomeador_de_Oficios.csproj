@@ -30,7 +30,7 @@
     <ProductName>Renomeador de ofícios</ProductName>
     <PublisherName>H2</PublisherName>
     <SuiteName>Renomeador de ofícios</SuiteName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -61,16 +61,16 @@
     <StartupObject>Renomeador_de_Oficios.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Assets\Icons\icon-renomeador-de-oficios.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\logo100x100.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4CB89E34CD85051DE490A3555CCF1F4A0567F009</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2C5D2BA915C1ACC5CBF56DF9850CE91A8D24EE92</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Renomeador_de_Oficios_TemporaryKey.pfx</ManifestKeyFile>
@@ -144,7 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Icons\brasao.ico" />
-    <Content Include="Assets\Icons\icon-renomeador-de-oficios.ico" />
+    <Content Include="Assets\Icons\logo-30x30.ico" />
+    <Content Include="Assets\Icons\logo100x100.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
