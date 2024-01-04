@@ -1,6 +1,7 @@
 ﻿using PdfiumViewer;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -316,5 +317,40 @@ namespace Renomeador_de_Oficios
         }
 
         #endregion
+
+        private void ListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0)
+                return;
+            
+            var listBox = (ListBox)sender; // Obtém a ListBox associada ao evento
+            
+            var item = (Oficio)listBox.Items[e.Index]; // Obtém o item associado ao índice
+
+            Font fonte = e.Font; // Obtém a fonte padrão da ListBox
+            Color corFundo = e.BackColor; // Obtém a cor de fundo padrão
+            Color corTexto = e.ForeColor; // Obtém a cor do texto padrão
+
+            // Verifica se o item está selecionado
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                corFundo = Color.FromArgb(63, 80, 97); // Altera a cor de fundo do item selecionado
+                corTexto = Color.White; // Altera a cor do texto do item selecionado
+            }
+
+            // Cria um pincel para a cor de fundo
+            using (var pincelFundo = new SolidBrush(corFundo))
+            {
+                e.Graphics.FillRectangle(pincelFundo, e.Bounds);// Pinta o fundo do item
+            }
+
+            // Cria um pincel para a cor do texto
+            using (var pincelTexto = new SolidBrush(corTexto))
+            {
+                e.Graphics.DrawString(item.Nome, fonte, pincelTexto, e.Bounds, StringFormat.GenericDefault); // Desenha o texto do item
+            }
+
+            e.DrawFocusRectangle(); // Desenha a borda ao redor do item
+        }
     }
 }

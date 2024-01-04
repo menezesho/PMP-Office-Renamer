@@ -331,14 +331,17 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lstOficios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lstOficios.DisplayMember = "nome";
+            this.lstOficios.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.lstOficios.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstOficios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
             this.lstOficios.FormattingEnabled = true;
-            this.lstOficios.ItemHeight = 21;
+            this.lstOficios.ItemHeight = 25;
             this.lstOficios.Location = new System.Drawing.Point(12, 53);
             this.lstOficios.Name = "lstOficios";
             this.lstOficios.Size = new System.Drawing.Size(515, 151);
             this.lstOficios.TabIndex = 2;
+            this.lstOficios.ValueMember = "id";
+            this.lstOficios.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBox_DrawItem);
             this.lstOficios.SelectedIndexChanged += new System.EventHandler(this.lstOficios_SelectedIndexChanged);
             // 
             // pbxBrasao
