@@ -68,7 +68,7 @@
             this.btRenomear.Location = new System.Drawing.Point(180, 521);
             this.btRenomear.Name = "btRenomear";
             this.btRenomear.Size = new System.Drawing.Size(179, 35);
-            this.btRenomear.TabIndex = 5;
+            this.btRenomear.TabIndex = 11;
             this.btRenomear.Text = "&Renomear ✓";
             this.ttInfo.SetToolTip(this.btRenomear, "Renomear ofício");
             this.btRenomear.UseVisualStyleBackColor = false;
@@ -86,7 +86,7 @@
             this.txtArquivoSelecionado.MaxLength = 100;
             this.txtArquivoSelecionado.Name = "txtArquivoSelecionado";
             this.txtArquivoSelecionado.Size = new System.Drawing.Size(515, 29);
-            this.txtArquivoSelecionado.TabIndex = 0;
+            this.txtArquivoSelecionado.TabIndex = 3;
             this.txtArquivoSelecionado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblArquivoSelecionado
@@ -117,7 +117,6 @@
             // txtSetor
             // 
             this.txtSetor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSetor.BackColor = System.Drawing.Color.White;
             this.txtSetor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSetor.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSetor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
@@ -125,7 +124,7 @@
             this.txtSetor.MaxLength = 70;
             this.txtSetor.Name = "txtSetor";
             this.txtSetor.Size = new System.Drawing.Size(283, 29);
-            this.txtSetor.TabIndex = 3;
+            this.txtSetor.TabIndex = 9;
             this.txtSetor.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
             // 
             // lblSetor
@@ -177,7 +176,7 @@
             this.txtResultado.MaxLength = 100;
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.Size = new System.Drawing.Size(515, 29);
-            this.txtResultado.TabIndex = 4;
+            this.txtResultado.TabIndex = 10;
             this.txtResultado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pdfViewer
@@ -188,7 +187,7 @@
             this.pdfViewer.Location = new System.Drawing.Point(536, -1);
             this.pdfViewer.Name = "pdfViewer";
             this.pdfViewer.Size = new System.Drawing.Size(663, 572);
-            this.pdfViewer.TabIndex = 13;
+            this.pdfViewer.TabIndex = 12;
             this.pdfViewer.TabStop = false;
             this.pdfViewer.ZoomMode = PdfiumViewer.PdfViewerZoomMode.FitWidth;
             // 
@@ -204,7 +203,6 @@
             // mtbNumOficio
             // 
             this.mtbNumOficio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.mtbNumOficio.BackColor = System.Drawing.Color.White;
             this.mtbNumOficio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mtbNumOficio.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbNumOficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
@@ -213,7 +211,7 @@
             this.mtbNumOficio.Mask = "000";
             this.mtbNumOficio.Name = "mtbNumOficio";
             this.mtbNumOficio.Size = new System.Drawing.Size(110, 29);
-            this.mtbNumOficio.TabIndex = 2;
+            this.mtbNumOficio.TabIndex = 8;
             this.mtbNumOficio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbNumOficio.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtbNumOficio.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
@@ -229,7 +227,7 @@
             this.mtbNumControle.Mask = "000";
             this.mtbNumControle.Name = "mtbNumControle";
             this.mtbNumControle.Size = new System.Drawing.Size(110, 29);
-            this.mtbNumControle.TabIndex = 1;
+            this.mtbNumControle.TabIndex = 7;
             this.mtbNumControle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbNumControle.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtbNumControle.TextChanged += new System.EventHandler(this.allTextBox_TextChanged);
@@ -255,7 +253,7 @@
             this.lblLimparArquivo.Location = new System.Drawing.Point(503, 260);
             this.lblLimparArquivo.Name = "lblLimparArquivo";
             this.lblLimparArquivo.Size = new System.Drawing.Size(20, 20);
-            this.lblLimparArquivo.TabIndex = 22;
+            this.lblLimparArquivo.TabIndex = 4;
             this.ttInfo.SetToolTip(this.lblLimparArquivo, "Fechar arquivo");
             this.lblLimparArquivo.Click += new System.EventHandler(this.lbLimparArquivo_Click);
             // 
@@ -270,7 +268,7 @@
             this.btnSelecionar.Location = new System.Drawing.Point(12, 12);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(254, 35);
-            this.btnSelecionar.TabIndex = 26;
+            this.btnSelecionar.TabIndex = 0;
             this.btnSelecionar.Text = "&Selecionar";
             this.ttInfo.SetToolTip(this.btnSelecionar, "Selecionar ofícios");
             this.btnSelecionar.UseVisualStyleBackColor = false;
@@ -287,7 +285,7 @@
             this.btnLimparLista.Location = new System.Drawing.Point(273, 12);
             this.btnLimparLista.Name = "btnLimparLista";
             this.btnLimparLista.Size = new System.Drawing.Size(254, 35);
-            this.btnLimparLista.TabIndex = 27;
+            this.btnLimparLista.TabIndex = 1;
             this.btnLimparLista.Text = "&Limpar";
             this.ttInfo.SetToolTip(this.btnLimparLista, "Limpar lista");
             this.btnLimparLista.UseVisualStyleBackColor = false;
@@ -304,7 +302,7 @@
             this.rbtRecebidos.Location = new System.Drawing.Point(163, 322);
             this.rbtRecebidos.Name = "rbtRecebidos";
             this.rbtRecebidos.Size = new System.Drawing.Size(104, 25);
-            this.rbtRecebidos.TabIndex = 23;
+            this.rbtRecebidos.TabIndex = 5;
             this.rbtRecebidos.TabStop = true;
             this.rbtRecebidos.Text = "Recebidos";
             this.rbtRecebidos.UseVisualStyleBackColor = true;
@@ -321,7 +319,7 @@
             this.rbtEnviados.Location = new System.Drawing.Point(273, 322);
             this.rbtEnviados.Name = "rbtEnviados";
             this.rbtEnviados.Size = new System.Drawing.Size(91, 25);
-            this.rbtEnviados.TabIndex = 24;
+            this.rbtEnviados.TabIndex = 6;
             this.rbtEnviados.TabStop = true;
             this.rbtEnviados.Text = "Enviados";
             this.rbtEnviados.UseVisualStyleBackColor = true;
@@ -340,7 +338,7 @@
             this.lstOficios.Location = new System.Drawing.Point(12, 53);
             this.lstOficios.Name = "lstOficios";
             this.lstOficios.Size = new System.Drawing.Size(515, 151);
-            this.lstOficios.TabIndex = 25;
+            this.lstOficios.TabIndex = 2;
             this.lstOficios.SelectedIndexChanged += new System.EventHandler(this.lstOficios_SelectedIndexChanged);
             // 
             // pbxBrasao

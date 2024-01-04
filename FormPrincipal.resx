@@ -120,9 +120,6 @@
   <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblLimparArquivo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -135,7 +132,7 @@
   <data name="pbxBrasao.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAEAAAABAACAYAAADyoyQXAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAA/7JJREFUeF7s3VtsnOd5J/AGCNAFFtiqG2xbbC9WQNHNRS4qILcFVsAiN7kI2GZP
+        EAAACxABrSO9dQAA/7JJREFUeF7s3VtsnOd5J/AGCNAFFtiqG2xbbC9WQNHNRS4qILcFVsAiN7kI2GZP
         AboLZdsmaRw0alLn2CRqDi3cFolaI4mTOokSO7GzXjtO6h58DHWkqBNJHSzryDM5HHJISiRF8TDz7LzK
         R69EvrIlmx7OML8f8IdC6x193/N+3zBXz/P+AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
