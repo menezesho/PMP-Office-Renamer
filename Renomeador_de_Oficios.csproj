@@ -30,7 +30,7 @@
     <ProductName>Renomeador de ofícios</ProductName>
     <PublisherName>H2</PublisherName>
     <SuiteName>Renomeador de ofícios</SuiteName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -70,7 +70,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>2C5D2BA915C1ACC5CBF56DF9850CE91A8D24EE92</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4CB89E34CD85051DE490A3555CCF1F4A0567F009</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Renomeador_de_Oficios_TemporaryKey.pfx</ManifestKeyFile>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
 
 namespace Renomeador_de_Oficios
@@ -11,6 +12,7 @@ namespace Renomeador_de_Oficios
     {
         List<Oficio> oficios = new List<Oficio>(); // Lista de ofícios
         Oficio oficioSelecionado = null;
+        int? numSequencial = null; // Armazena o número sequencial do ofício
 
         string diretorioEnviados = $@"\\192.168.0.250\secretarias\Seplan\DPD\DOCUMENTOS DIGITALIZADOS\Ofícios\Ofícios Enviados {DateTime.Now.Year.ToString()}"; // Armazena o diretório de ofícios enviados
         string diretorioRecebidos = $@"\\192.168.0.250\secretarias\Seplan\DPD\DOCUMENTOS DIGITALIZADOS\Ofícios\Ofícios Recebidos {DateTime.Now.Year.ToString()}"; // Armazena o diretório de ofícios recebidos
@@ -72,6 +74,8 @@ namespace Renomeador_de_Oficios
                 if (rbtRecebidos.Checked)
                 {
                     mtbNumControle.Enabled = true;
+                    
+                   
                 }
                 else if (rbtEnviados.Checked)
                 {
@@ -149,6 +153,10 @@ namespace Renomeador_de_Oficios
                     }
 
                     lstOficios.DataSource = oficios; // Carrega a lista de ofícios no componente ListBox
+
+                    if (rbtRecebidos.Checked)
+                        pegarNumeroSequencialDoOficio();// Chama a função que pega o número sequencial dos oficios recebidos
+
 
                     //desabilitarCampos();
                 }
@@ -393,6 +401,34 @@ namespace Renomeador_de_Oficios
                 MessageBox.Show("Erro ao mover o arquivo para o servidor!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void pegarNumeroSequencialDoOficio()
+        {
+            try
+            {
+                string[] arquivos = Directory.GetFiles(diretorioRecebidos, "*.pdf"); // Pega todos os arquivos PDF do diretório de recebidos
+
+                numSequencial = arquivos.Length + 1; // Pega o número sequencial do ofício
+
+                if (numSequencial != null) //formata o número sequencial do ofício para ter 3 digitos
+                {
+                    if (numSequencial.ToString().Length == 3)
+                        mtbNumControle.Text = numSequencial.ToString();
+                    else if (numSequencial.ToString().Length == 2)
+                        mtbNumControle.Text = "0" + numSequencial.ToString();
+                    else if (numSequencial.ToString().Length == 1)
+                        mtbNumControle.Text = "00" + numSequencial.ToString();
+                }
+
+                //mtbNumControle.Enabled = false; 
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex);
+                MessageBox.Show("Erro ao pegar o número sequencial do ofício!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion
